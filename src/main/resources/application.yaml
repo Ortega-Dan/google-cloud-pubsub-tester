@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    gcp:
+      project-id: testerproject
+      pubsub:
+        emulator-host: localhost:8085
