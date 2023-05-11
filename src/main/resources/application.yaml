@@ -4,3 +4,8 @@ spring:
       project-id: testerproject
       pubsub:
         emulator-host: localhost:8085
+
+
+# pubsub:
+#   subscription.name: anothaSubsNamie-Hea
+#   topic.name: aTopicTopic
