@@ -4,8 +4,10 @@ spring:
       project-id: testerproject
       pubsub:
         emulator-host: localhost:8085
+      # if the emulator-host property is not set or set to empty string, the emulator wont be used but the real Pub/Sub service
+      # more info https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library
 
 
 # pubsub:
-#   subscription.name: anothaSubsNamie-Hea
-#   topic.name: aTopicTopic
+#   subscription.name: aGivenSubscription
+#   topic.name: aGivenTopic
