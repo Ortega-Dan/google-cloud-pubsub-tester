@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.example.demo.config.PublishConfig.PubSubPublisher;
+import com.example.demo.config.PublishConfig.Publisher;
 
 import lombok.AllArgsConstructor;
 
@@ -13,12 +13,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class WebAppController {
 
-    private final PubSubPublisher publisher;
+    private final Publisher publisher;
 
     @PostMapping("/publishMessage")
     public RedirectView publishMessage(@RequestParam("message") String message) {
         
-        publisher.sendToPubsub(message);
+        publisher.publish(message);
 
         return new RedirectView("/");
     }
