@@ -1,13 +1,13 @@
 spring:
   cloud:
     gcp:
-      project-id: testerproject
+      project-id: dsgov-dev
       pubsub:
         emulator-host: localhost:8085
-      # if the emulator-host property is not set or set to empty string, the emulator wont be used but the real Pub/Sub service
-      # more info https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library
+      # if the emulator-host property is not placed or set to either false or "false", the emulator wont be used, but rather the real Pub/Sub service will.
+      # More info https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library
 
-
-# pubsub:
-#   subscription.name: aGivenSubscription
-#   topic.name: aGivenTopic
+pubsub:
+  createtopicandsubs: false
+  subscription.name: projects/dsgov-dev/subscriptions/NEW_FILE_UPLOAD_SUBSCRIPTION
+  topic.name: projects/dsgov-dev/topics/NEW_FILE_UPLOAD

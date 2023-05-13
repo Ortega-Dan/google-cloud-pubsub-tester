@@ -17,6 +17,9 @@ public class PublishConfig {
     @Value("${pubsub.topic.name:test-topic}")
     private String topicName;
 
+    @Value("${pubsub.createtopicandsubs:false}")
+    private boolean createtopicandsubs;
+
     private static final String OUTPUT_CHANNEL = "outputChannel";
 
     // this is again the configuration bean
@@ -25,7 +28,7 @@ public class PublishConfig {
     public MessageHandler messageSender(PubSubTemplate pubsubTemplate, PubSubAdmin admin) {
 
         // creating topic if it does not exist
-        {
+        if (createtopicandsubs) {
             if (admin.getTopic(topicName) == null) {
                 admin.createTopic(topicName);
             }

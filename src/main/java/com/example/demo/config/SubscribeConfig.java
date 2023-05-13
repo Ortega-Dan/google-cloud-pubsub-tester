@@ -25,6 +25,9 @@ public class SubscribeConfig {
     @Value("${pubsub.topic.name:test-topic}")
     private String topicName;
 
+    @Value("${pubsub.createtopicandsubs:false}")
+    private boolean createtopicandsubs;
+
     @Autowired
     private Subscriber subscriber;
 
@@ -44,7 +47,7 @@ public class SubscribeConfig {
             PubSubTemplate pubSubTemplate, PubSubAdmin admin) {
 
         // creating topic and subscription if they do not exist
-        {
+        if (createtopicandsubs) {
             // creating topic if it does not exist
             if (admin.getTopic(topicName) == null) {
                 admin.createTopic(topicName);
